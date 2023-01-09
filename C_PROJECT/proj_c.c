@@ -41,6 +41,7 @@ void create_node(str_nodeInfo_t* strPtr)
 */
 void create_data(str_nodeInfo_t* strPtr1, Uint8_t* pass, Uint8_t* u8BankAccountID)
 {
+	Uint8_t local_u8NationalID[15];
     str_node_t* pn = (str_node_t*) malloc(sizeof(str_node_t));
 
     strcpy(pn->accountStatus, "active");
@@ -61,14 +62,28 @@ void create_data(str_nodeInfo_t* strPtr1, Uint8_t* pass, Uint8_t* u8BankAccountI
 
     if(pn->age < 21)
     {
+		
         printf("Enter Gurdian National ID   >> ");
+		scanf ("%s", local_u8NationalID);
+		while (strlen(local_u8NationalID) != 14)
+		{
+			printf("Enter Gurdian National ID cosist of 14 digits  >> ");
+			scanf ("%s", local_u8NationalID);	
+		}
+		strcpy(pn->GurdianID, local_u8NationalID);
         
-        scanf("%u", &pn->GurdianID);
+        // scanf("%u", &pn->GurdianID);
     }
     else if(pn->age >= 21)
     {
         printf("Enter National ID           >> ");
-        scanf("%u", &pn->NationalID); 
+		scanf ("%s", local_u8NationalID);
+		while (strlen(local_u8NationalID) != 14)
+		{
+			printf("Enter Gurdian National ID cosist of 14 digits  >> ");
+			scanf ("%s", local_u8NationalID);	
+		}
+		strcpy(pn->NationalID, local_u8NationalID);
     }
     else 
     {
@@ -236,6 +251,7 @@ void display_AccountInfo(str_nodeInfo_t* str_nodeCopy)
         printf("Address             : %s \n ",  local_strCount->addr);
         printf("Bank Account Status : %s \n ", local_strCount->accountStatus);
         printf("Bank Account ID     : %s \n ",  local_strCount->bankAccountID);
+		printf("Bank Password 		: %s \n", local_strCount->password);
         printf("Age                 : %u \n ", local_strCount->age);
         if(local_strCount->age < 21)
         {

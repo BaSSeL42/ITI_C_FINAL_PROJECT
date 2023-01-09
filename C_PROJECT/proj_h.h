@@ -21,10 +21,10 @@ typedef struct node
 	Uint8_t addr[50];
 	Uint8_t accountStatus[20];
 	Uint8_t password[11];
+	Uint8_t NationalID[15];
+	Uint8_t GurdianID[15];
 	Sint8_t bankAccountID[11];
 	Uint32_t age;
-	Uint32_t NationalID;
-	Uint32_t GurdianID;
 	Uint32_t balance;
 	
 
