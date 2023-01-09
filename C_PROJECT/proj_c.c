@@ -80,7 +80,7 @@ void create_data(str_nodeInfo_t* strPtr1, Uint8_t* pass, Uint8_t* u8BankAccountI
 		scanf ("%s", local_u8NationalID);
 		while (strlen(local_u8NationalID) != 14)
 		{
-			printf("Enter Gurdian National ID cosist of 14 digits  >> ");
+			printf("Enter your National ID cosist of 14 digits  >> ");
 			scanf ("%s", local_u8NationalID);	
 		}
 		strcpy(pn->NationalID, local_u8NationalID);
